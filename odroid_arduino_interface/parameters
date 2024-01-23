@@ -1,0 +1,4 @@
+BAUD_RATE=2400
+#DEV=/dev/ttyUSB0
+#DEV=/dev/ttyACM0
+DEV=/dev/ttyS0

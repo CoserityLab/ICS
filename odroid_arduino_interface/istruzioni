@@ -1,0 +1,28 @@
+- copiare 99-ttyUSB.rules in /etc/udev/rules.d
+- modificare il file con il idVendor e idProduct giusti
+- usare i comandi:
+	udevadm info -n ttyUSB0 -a
+	lsusb -v
+
+cp 99-ttyUSB.rules /etc/udev/rules.d
+
+--------------------------------------------------------
+
+creare il file /etc/systemd/system/serialService.service che abbia il seguente contenuto:
+
+[Unit]
+Description=Serial Line Startup Script
+
+[Service]
+ExecStart=/home/odroid/usb/relais/StartSerialLine.sh
+
+[Install]
+WantedBy=default.target
+
+dare al file precedente i seguenti permessi con il comando:
+
+chmod 644 /etc/systemd/system/serialService.service
+
+abilitare il servizio con il comando:
+
+systemctl enable serialService.service

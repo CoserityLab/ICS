@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", RUN+="/bin/stty 2400 -F /dev/%k -hup raw -echo min 1"
